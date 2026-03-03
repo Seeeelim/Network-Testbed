@@ -116,5 +116,4 @@ topos = {
 }
 
 # to run in commandline for mininet
-"""sudo mn --customer urban_hospital_topology.py --topo urbanhospital
- --controller remote"""
+"""sudo mn --customer urban_hospital_topology.py --topo urbanhospital"""
