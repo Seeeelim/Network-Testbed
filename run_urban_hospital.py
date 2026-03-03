@@ -10,14 +10,14 @@ net = Mininet(topo=UrbanHospitalTopo(), controller=Controller)
 net.start()
 
 # Get Routers
-r_core = net.get('r-core')
-r_clinic = net.get('r-clinic')
-rA1 = net.get('wan-r1a')
-rA2 = net.get('wan-r2a')
-rA3 = net.get('wan-r3a')
-rB1 = net.get('wan-r1b')
-rB2 = net.get('wan-r2b')
-rB3 = net.get('wan-r3b')
+r_core = net.get('rcore')
+r_clinic = net.get('rclinic')
+rA1 = net.get('wanr1a')
+rA2 = net.get('wanr2a')
+rA3 = net.get('wanr3a')
+rB1 = net.get('wanr1b')
+rB2 = net.get('wanr2b')
+rB3 = net.get('wanr3b')
 
 # LAN-side Interfaces
 # r-core LAN Interfaces
