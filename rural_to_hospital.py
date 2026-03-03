@@ -89,7 +89,7 @@ def myNetwork():
     h6 = net.addHost('rH4', cls=Host, ip='10.10.10.5/24', defaultRoute='via 10.10.10.1')
     h7 = net.addHost('aH1', cls=Host, ip='10.20.10.2/24', defaultRoute='via 10.20.10.1')
     h8 = net.addHost('aH2', cls=Host, ip='10.20.10.3/24', defaultRoute='via 10.20.10.1')
-    h9 = net.addHost('aH3', cls=Host, ip='10.20.10.3/24', defaultRoute='via 10.20.10.1')
+    h9 = net.addHost('aH3', cls=Host, ip='10.20.10.4/24', defaultRoute='via 10.20.10.1')
     h10 = net.addHost('cH1', cls=Host, ip='10.20.20.2/24', defaultRoute='via 10.20.20.1')
     h11 = net.addHost('cH2', cls=Host, ip='10.20.20.3/24', defaultRoute='via 10.20.20.1')
     h12 = net.addHost('cH3', cls=Host, ip='10.20.20.4/24', defaultRoute='via 10.20.20.1')
