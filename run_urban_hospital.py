@@ -79,3 +79,6 @@ r_clinic.cmd("ip route add 10.10.0.0/16 via 192.168.14.1")
 CLI(net)
 
 net.stop()
+
+# To run in mininet
+""" sudo python3 run_urban_hospital.py """
