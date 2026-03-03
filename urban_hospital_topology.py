@@ -30,20 +30,20 @@ class UrbanHospitalTopo(Topo):
         s_remote = self.addSwitch("s_remote", dpid="0000000000000007")
 
         # Hospital Router
-        r_core = self.addNode("r-core", cls=LinuxRouter)
+        r_core = self.addNode("rcore", cls=LinuxRouter)
 
         # Clinic Router
-        r_clinic = self.addNode("r-clinic", cls=LinuxRouter)
+        r_clinic = self.addNode("rclinic", cls=LinuxRouter)
 
         # WAN Routers (Path A)
-        rA1 = self.addNode("wan-r1a", cls=LinuxRouter)
-        rA2 = self.addNode("wan-r2a", cls=LinuxRouter)
-        rA3 = self.addNode("wan-r3a", cls=LinuxRouter)
+        rA1 = self.addNode("wanr1a", cls=LinuxRouter)
+        rA2 = self.addNode("wanr2a", cls=LinuxRouter)
+        rA3 = self.addNode("wanr3a", cls=LinuxRouter)
 
         # WAN Routers (Path B)
-        rB1 = self.addNode("wan-r1b", cls=LinuxRouter)
-        rB2 = self.addNode("wan-r2b", cls=LinuxRouter)
-        rB3 = self.addNode("wan-r3b", cls=LinuxRouter)
+        rB1 = self.addNode("wanr1b", cls=LinuxRouter)
+        rB2 = self.addNode("wanr2b", cls=LinuxRouter)
+        rB3 = self.addNode("wanr3b", cls=LinuxRouter)
 
         # Urban Hospital Switch to Router Links
         """Lan Side Values: Bandwidth = 10-40gb, Latency = 1-2ms,
@@ -56,40 +56,40 @@ class UrbanHospitalTopo(Topo):
         self.addLink(r_core, s_server, cls=TCLink, bw=10000, delay="2ms")
 
         # Urban Hospital Admin Host Creation and Admin to Switch Links
-        adm1 = self.addHost("admin-1", ip="10.10.10.11/24", defaultRoute="via 10.10.10.1")
-        adm2 = self.addHost("admin-2", ip="10.10.10.12/24", defaultRoute="via 10.10.10.1")
+        adm1 = self.addHost("admin1", ip="10.10.10.11/24", defaultRoute="via 10.10.10.1")
+        adm2 = self.addHost("admin2", ip="10.10.10.12/24", defaultRoute="via 10.10.10.1")
         self.addLink(adm1, s_admin, cls=TCLink, bw=1000, delay="2ms")
         self.addLink(adm2, s_admin, cls=TCLink, bw=1000, delay="2ms")
 
         # Urban Clinic Network Client Host Creation and Client to Switch Links
-        clin1 = self.addHost("client-1", ip="10.10.20.21/24", defaultRoute="via 10.10.20.1")
-        clin2 = self.addHost("client-2", ip="10.10.20.22/24", defaultRoute="via 10.10.20.1")
-        clin3 = self.addHost("client-3", ip="10.10.20.23/24", defaultRoute="via 10.10.20.1")
+        clin1 = self.addHost("client1", ip="10.10.20.21/24", defaultRoute="via 10.10.20.1")
+        clin2 = self.addHost("client2", ip="10.10.20.22/24", defaultRoute="via 10.10.20.1")
+        clin3 = self.addHost("client3", ip="10.10.20.23/24", defaultRoute="via 10.10.20.1")
         self.addLink(clin1, s_clin, cls=TCLink, bw=1000, delay="2ms")
         self.addLink(clin2, s_clin, cls=TCLink, bw=1000, delay="2ms")
         self.addLink(clin3, s_clin, cls=TCLink, bw=1000, delay="2ms")
 
         # Urban Hospital IoT Host Creation and IoT to Switch Link
         """Patient monitors don't need as much bandwidth"""
-        iot1 = self.addHost("iot-1", ip="10.10.30.31/24", defaultRoute="via 10.10.30.1")
+        iot1 = self.addHost("iot1", ip="10.10.30.31/24", defaultRoute="via 10.10.30.1")
         self.addLink(iot1, s_iot, cls=TCLink, bw=100, delay="8ms")
 
         # Urban Hospital Voice Host Creation and Voice to Switch Link
         """Nurse station phones dont need as much bandwidth"""
-        voip1 = self.addHost("voice-1", ip="10.10.40.41/24", defaultRoute="via 10.10.40.1")
+        voip1 = self.addHost("voice1", ip="10.10.40.41/24", defaultRoute="via 10.10.40.1")
         self.addLink(voip1, s_voice, cls=TCLink, bw=10, delay="2ms")
 
         # Urban Hospital Guest Host Creation and Guest to Switch Link
-        guest1 = self.addHost("guest-1", ip="10.10.50.51/24", defaultRoute="via 10.10.50.1")
+        guest1 = self.addHost("guest1", ip="10.10.50.51/24", defaultRoute="via 10.10.50.1")
         self.addLink(guest1, s_guest, cls=TCLink, bw=50, delay="15ms", loss=1)
 
         # Urban Hospital Server Host Creation and Server to Switch Link
-        ehr = self.addHost("server-1", ip="10.10.60.61/24", defaultRoute="via 10.10.60.1")
+        ehr = self.addHost("server1", ip="10.10.60.61/24", defaultRoute="via 10.10.60.1")
         self.addLink(ehr, s_server, cls=TCLink, bw=1000, delay="1ms")
 
         # Urban Clinic Client Host Creation and Clinic Client to Switch Link
-        clinic_pc1 = self.addHost("clinic-1", ip="10.20.10.10/24", defaultRoute="via 10.20.10.1")
-        clinic_pc2 = self.addHost("clinic-2", ip="10.20.10.11/24", defaultRoute="via 10.20.10.1")
+        clinic_pc1 = self.addHost("clinic1", ip="10.20.10.10/24", defaultRoute="via 10.20.10.1")
+        clinic_pc2 = self.addHost("clinic2", ip="10.20.10.11/24", defaultRoute="via 10.20.10.1")
         self.addLink(r_clinic, s_remote, cls=TCLink, bw=1000, delay="2ms")
         self.addLink(clinic_pc1, s_remote, cls=TCLink, bw=1000, delay="2ms")
         self.addLink(clinic_pc2, s_remote, cls=TCLink, bw=1000, delay="2ms")
