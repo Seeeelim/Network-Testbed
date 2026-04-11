@@ -1,0 +1,8 @@
+{
+    "packet_size": 512,
+    "rate": 1000,
+    "protocol": "TCP",
+    "baseline_seconds": 10,
+    "duration": 30,
+    "runs": 1
+}

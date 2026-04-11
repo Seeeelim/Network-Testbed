@@ -1,0 +1,288 @@
+{
+    "nodes": [
+
+        {
+            "id": "rcore",
+            "type": "router",
+            "x": 500,
+            "y": 600,
+            "properties": {
+                "IP": "10.10.10.1/24",
+                "Interfaces": {
+                    "rcore-eth0": "10.10.10.1/24",
+                    "rcore-eth1": "10.10.20.1/24",
+                    "rcore-eth2": "10.10.30.1/24",
+                    "rcore-eth3": "10.10.40.1/24",
+                    "rcore-eth4": "10.10.50.1/24",
+                    "rcore-eth5": "10.10.60.1/24",
+                    "rcore-eth6": "192.168.1.2/24",
+                    "rcore-eth7": "192.168.11.2/24"
+                }
+            }
+        },
+        {
+            "id": "rclinic",
+            "type": "router",
+            "x": 1500,
+            "y": 600,
+            "properties": {
+                "IP": "10.20.10.1/24",
+                "Interfaces": {
+                    "rclinic-eth0": "10.20.10.1/24",
+                    "rclinic-eth1": "192.168.4.2/24",
+                    "rclinic-eth2": "192.168.14.2/24"
+                }
+            }
+        },
+
+        {
+            "id": "wanr1a",
+            "type": "router",
+            "x": 750,
+            "y": 200,
+            "properties": {
+                "IP": "192.168.1.1/24",
+                "Interfaces": {
+                    "wanr1a-eth0": "192.168.1.1/24",
+                    "wanr1a-eth1": "192.168.2.1/24"
+                }
+            }
+        },
+        {
+            "id": "wanr2a",
+            "type": "router",
+            "x": 1000,
+            "y": 200,
+            "properties": {
+                "IP": "192.168.2.2/24",
+                "Interfaces": {
+                    "wanr2a-eth0": "192.168.2.2/24",
+                    "wanr2a-eth1": "192.168.3.1/24"
+                }
+            }
+        },
+        {
+            "id": "wanr3a",
+            "type": "router",
+            "x": 1250,
+            "y": 200,
+            "properties": {
+                "IP": "192.168.3.2/24",
+                "Interfaces": {
+                    "wanr3a-eth0": "192.168.3.2/24",
+                    "wanr3a-eth1": "192.168.4.1/24"
+                }
+            }
+        },
+
+        {
+            "id": "wanr1b",
+            "type": "router",
+            "x": 750,
+            "y": 1000,
+            "properties": {
+                "IP": "192.168.11.1/24",
+                "Interfaces": {
+                    "wanr1b-eth0": "192.168.11.1/24",
+                    "wanr1b-eth1": "192.168.12.1/24"
+                }
+            }
+        },
+        {
+            "id": "wanr2b",
+            "type": "router",
+            "x": 1000,
+            "y": 1000,
+            "properties": {
+                "IP": "192.168.12.2/24",
+                "Interfaces": {
+                    "wanr2b-eth0": "192.168.12.2/24",
+                    "wanr2b-eth1": "192.168.13.1/24"
+                }
+            }
+        },
+        {
+            "id": "wanr3b",
+            "type": "router",
+            "x": 1250,
+            "y": 1000,
+            "properties": {
+                "IP": "192.168.13.2/24",
+                "Interfaces": {
+                    "wanr3b-eth0": "192.168.13.2/24",
+                    "wanr3b-eth1": "192.168.14.1/24"
+                }
+            }
+        },
+
+        {
+            "id": "s_admin",
+            "type": "switch",
+            "x": 200,
+            "y": 100,
+            "properties": { "Description": "Admin", "DPID": "0000000000000001" }
+        },
+        {
+            "id": "s_clin",
+            "type": "switch",
+            "x": 200,
+            "y": 300,
+            "properties": { "Description": "Clinical", "DPID": "0000000000000002" }
+        },
+        {
+            "id": "s_iot",
+            "type": "switch",
+            "x": 200,
+            "y": 500,
+            "properties": { "Description": "IoT", "DPID": "0000000000000003" }
+        },
+        {
+            "id": "s_voice",
+            "type": "switch",
+            "x": 200,
+            "y": 700,
+            "properties": { "Description": "VoIP", "DPID": "0000000000000004" }
+        },
+        {
+            "id": "s_guest",
+            "type": "switch",
+            "x": 200,
+            "y": 900,
+            "properties": { "Description": "Guest", "DPID": "0000000000000005" }
+        },
+        {
+            "id": "s_server",
+            "type": "switch",
+            "x": 200,
+            "y": 1100,
+            "properties": { "Description": "Server", "DPID": "0000000000000006" }
+        },
+        {
+            "id": "s_remote",
+            "type": "switch",
+            "x": 1750,
+            "y": 600,
+            "properties": { "Description": "Clinic LAN", "DPID": "0000000000000007" }
+        },
+
+        {
+            "id": "admin1",
+            "type": "host",
+            "x": -100,
+            "y": 50,
+            "properties": { "IP": "10.10.10.11/24", "DefaultRoute": "via 10.10.10.1" }
+        },
+        {
+            "id": "admin2",
+            "type": "host",
+            "x": -100,
+            "y": 150,
+            "properties": { "IP": "10.10.10.12/24", "DefaultRoute": "via 10.10.10.1" }
+        },
+
+        {
+            "id": "client1",
+            "type": "host",
+            "x": -100,
+            "y": 240,
+            "properties": { "IP": "10.10.20.21/24", "DefaultRoute": "via 10.10.20.1" }
+        },
+        {
+            "id": "client2",
+            "type": "host",
+            "x": -100,
+            "y": 300,
+            "properties": { "IP": "10.10.20.22/24", "DefaultRoute": "via 10.10.20.1" }
+        },
+        {
+            "id": "client3",
+            "type": "host",
+            "x": -100,
+            "y": 360,
+            "properties": { "IP": "10.10.20.23/24", "DefaultRoute": "via 10.10.20.1" }
+        },
+
+        {
+            "id": "iot1",
+            "type": "host",
+            "x": -100,
+            "y": 500,
+            "properties": { "IP": "10.10.30.31/24", "DefaultRoute": "via 10.10.30.1" }
+        },
+
+        {
+            "id": "voice1",
+            "type": "host",
+            "x": -100,
+            "y": 700,
+            "properties": { "IP": "10.10.40.41/24", "DefaultRoute": "via 10.10.40.1" }
+        },
+
+        {
+            "id": "guest1",
+            "type": "host",
+            "x": -100,
+            "y": 900,
+            "properties": { "IP": "10.10.50.51/24", "DefaultRoute": "via 10.10.50.1" }
+        },
+
+        {
+            "id": "server1",
+            "type": "host",
+            "x": -100,
+            "y": 1100,
+            "properties": { "IP": "10.10.60.61/24", "DefaultRoute": "via 10.10.60.1" }
+        },
+
+        {
+            "id": "clinic1",
+            "type": "host",
+            "x": 2000,
+            "y": 550,
+            "properties": { "IP": "10.20.10.10/24", "DefaultRoute": "via 10.20.10.1" }
+        },
+        {
+            "id": "clinic2",
+            "type": "host",
+            "x": 2000,
+            "y": 650,
+            "properties": { "IP": "10.20.10.11/24", "DefaultRoute": "via 10.20.10.1" }
+        }
+    ],
+
+    "links": [
+        {"src": "rcore",    "dst": "s_admin",  "segment": "hlan", "properties": {"Bandwidth": 10000, "Delay": "2ms",  "Jitter": "1ms", "Loss": 0.01}},
+        {"src": "rcore",    "dst": "s_clin",   "segment": "hlan", "properties": {"Bandwidth": 10000, "Delay": "2ms",  "Jitter": "1ms", "Loss": 0.01}},
+        {"src": "rcore",    "dst": "s_iot",    "segment": "hlan", "properties": {"Bandwidth": 10000, "Delay": "2ms",  "Jitter": "1ms", "Loss": 0.01}},
+        {"src": "rcore",    "dst": "s_voice",  "segment": "hlan", "properties": {"Bandwidth": 10000, "Delay": "2ms",  "Jitter": "1ms", "Loss": 0.01}},
+        {"src": "rcore",    "dst": "s_guest",  "segment": "hlan", "properties": {"Bandwidth": 10000, "Delay": "2ms",  "Jitter": "1ms", "Loss": 0.01}},
+        {"src": "rcore",    "dst": "s_server", "segment": "hlan", "properties": {"Bandwidth": 10000, "Delay": "2ms",  "Jitter": "1ms", "Loss": 0.01}},
+
+        {"src": "s_admin",  "dst": "admin1",   "segment": "hlan", "properties": {"Bandwidth": 1000,  "Delay": "2ms",  "Jitter": "1ms", "Loss": 0.01}},
+        {"src": "s_admin",  "dst": "admin2",   "segment": "hlan", "properties": {"Bandwidth": 1000,  "Delay": "2ms",  "Jitter": "1ms", "Loss": 0.01}},
+
+        {"src": "s_clin",   "dst": "client1",  "segment": "hlan", "properties": {"Bandwidth": 1000,  "Delay": "2ms",  "Jitter": "1ms", "Loss": 0.01}},
+        {"src": "s_clin",   "dst": "client2",  "segment": "hlan", "properties": {"Bandwidth": 1000,  "Delay": "2ms",  "Jitter": "1ms", "Loss": 0.01}},
+        {"src": "s_clin",   "dst": "client3",  "segment": "hlan", "properties": {"Bandwidth": 1000,  "Delay": "2ms",  "Jitter": "1ms", "Loss": 0.01}},
+
+        {"src": "s_iot",    "dst": "iot1",     "segment": "hlan", "properties": {"Bandwidth": 100,   "Delay": "8ms",  "Jitter": "2ms", "Loss": 0.01}},
+        {"src": "s_voice",  "dst": "voice1",   "segment": "hlan", "properties": {"Bandwidth": 10,    "Delay": "2ms",  "Jitter": "1ms", "Loss": 0.01}},
+        {"src": "s_guest",  "dst": "guest1",   "segment": "hlan", "properties": {"Bandwidth": 50,    "Delay": "15ms", "Jitter": "5ms", "Loss": 1.0}},
+        {"src": "s_server", "dst": "server1",  "segment": "hlan", "properties": {"Bandwidth": 1000,  "Delay": "1ms",  "Jitter": "1ms", "Loss": 0.01}},
+
+        {"src": "rcore",  "dst": "wanr1a",  "segment": "wan-a", "properties": {"Bandwidth": 5000, "Delay": "20ms", "Jitter": "5ms", "Loss": 0.1}},
+        {"src": "wanr1a", "dst": "wanr2a",  "segment": "wan-a", "properties": {"Bandwidth": 5000, "Delay": "20ms", "Jitter": "5ms", "Loss": 0.1}},
+        {"src": "wanr2a", "dst": "wanr3a",  "segment": "wan-a", "properties": {"Bandwidth": 5000, "Delay": "20ms", "Jitter": "5ms", "Loss": 0.1}},
+        {"src": "wanr3a", "dst": "rclinic", "segment": "wan-a", "properties": {"Bandwidth": 5000, "Delay": "20ms", "Jitter": "5ms", "Loss": 0.1}},
+
+        {"src": "rcore",  "dst": "wanr1b",  "segment": "wan-b", "properties": {"Bandwidth": 5000, "Delay": "20ms", "Jitter": "5ms", "Loss": 0.1}},
+        {"src": "wanr1b", "dst": "wanr2b",  "segment": "wan-b", "properties": {"Bandwidth": 5000, "Delay": "20ms", "Jitter": "5ms", "Loss": 0.1}},
+        {"src": "wanr2b", "dst": "wanr3b",  "segment": "wan-b", "properties": {"Bandwidth": 5000, "Delay": "20ms", "Jitter": "5ms", "Loss": 0.1}},
+        {"src": "wanr3b", "dst": "rclinic", "segment": "wan-b", "properties": {"Bandwidth": 5000, "Delay": "20ms", "Jitter": "5ms", "Loss": 0.1}},
+
+        {"src": "rclinic",  "dst": "s_remote", "segment": "clan", "properties": {"Bandwidth": 1000, "Delay": "2ms", "Jitter": "1ms", "Loss": 0.01}},
+        {"src": "s_remote", "dst": "clinic1",  "segment": "clan", "properties": {"Bandwidth": 1000, "Delay": "2ms", "Jitter": "1ms", "Loss": 0.01}},
+        {"src": "s_remote", "dst": "clinic2",  "segment": "clan", "properties": {"Bandwidth": 1000, "Delay": "2ms", "Jitter": "1ms", "Loss": 0.01}}
+    ],
+    "ditg_server": "clinic1"
+}
