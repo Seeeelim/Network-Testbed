@@ -1,0 +1,240 @@
+{
+    "nodes": [
+        {
+            "id": "rR",
+            "type": "router",
+            "x": 200,
+            "y": 300,
+            "properties": {
+                "IP": "198.162.10.10/24",
+                "Interfaces": {
+                    "rR-eth0": "198.162.10.10/24",
+                    "rR-eth1": "10.10.10.1/24"
+                }
+            }
+        },
+        {
+            "id": "uR",
+            "type": "router",
+            "x": 800,
+            "y": 300,
+            "properties": {
+                "IP": "198.162.10.20/24",
+                "Interfaces": {
+                    "uR-eth0": "198.162.10.20/24",
+                    "uR-eth1": "10.20.10.1/24",
+                    "uR-eth2": "10.20.20.1/24",
+                    "uR-eth3": "10.20.30.1/24"
+                }
+            }
+        },
+
+        {
+            "id": "s1",
+            "type": "switch",
+            "x": 500,
+            "y": 300,
+            "properties": {
+                "Description": "Internet"
+            }
+        },
+        {
+            "id": "s2",
+            "type": "switch",
+            "x": -100,
+            "y": 300,
+            "properties": {
+                "Description": "Rural LAN"
+            }
+        },
+        {
+            "id": "s3",
+            "type": "switch",
+            "x": 1150,
+            "y": 0,
+            "properties": {
+                "Description": "Admin"
+            }
+        },
+        {
+            "id": "s4",
+            "type": "switch",
+            "x": 1150,
+            "y": 300,
+            "properties": {
+                "Description": "Clinic"
+            }
+        },
+        {
+            "id": "s5",
+            "type": "switch",
+            "x": 1150,
+            "y": 600,
+            "properties": {
+                "Description": "IoT"
+            }
+        },
+
+        {
+            "id": "rH1",
+            "type": "host",
+            "x": -380,
+            "y": 150,
+            "properties": {
+                "IP": "10.10.10.2/24",
+                "DefaultRoute": "via 10.10.10.1"
+            }
+        },
+        {
+            "id": "rH2",
+            "type": "host",
+            "x": -380,
+            "y": 250,
+            "properties": {
+                "IP": "10.10.10.3/24",
+                "DefaultRoute": "via 10.10.10.1"
+            }
+        },
+        {
+            "id": "rH3",
+            "type": "host",
+            "x": -380,
+            "y": 350,
+            "properties": {
+                "IP": "10.10.10.4/24",
+                "DefaultRoute": "via 10.10.10.1"
+            }
+        },
+        {
+            "id": "rH4",
+            "type": "host",
+            "x": -380,
+            "y": 450,
+            "properties": {
+                "IP": "10.10.10.5/24",
+                "DefaultRoute": "via 10.10.10.1"
+            }
+        },
+
+        {
+            "id": "aH1",
+            "type": "host",
+            "x": 1400,
+            "y": -90,
+            "properties": {
+                "IP": "10.20.10.2/24",
+                "DefaultRoute": "via 10.20.10.1"
+            }
+        },
+        {
+            "id": "aH2",
+            "type": "host",
+            "x": 1400,
+            "y": 0,
+            "properties": {
+                "IP": "10.20.10.3/24",
+                "DefaultRoute": "via 10.20.10.1"
+            }
+        },
+        {
+            "id": "aH3",
+            "type": "host",
+            "x": 1400,
+            "y": 90,
+            "properties": {
+                "IP": "10.20.10.4/24",
+                "DefaultRoute": "via 10.20.10.1"
+            }
+        },
+
+        {
+            "id": "cH1",
+            "type": "host",
+            "x": 1400,
+            "y": 210,
+            "properties": {
+                "IP": "10.20.20.2/24",
+                "DefaultRoute": "via 10.20.20.1"
+            }
+        },
+        {
+            "id": "cH2",
+            "type": "host",
+            "x": 1400,
+            "y": 300,
+            "properties": {
+                "IP": "10.20.20.3/24",
+                "DefaultRoute": "via 10.20.20.1"
+            }
+        },
+        {
+            "id": "cH3",
+            "type": "host",
+            "x": 1400,
+            "y": 390,
+            "properties": {
+                "IP": "10.20.20.4/24",
+                "DefaultRoute": "via 10.20.20.1"
+            }
+        },
+
+        {
+            "id": "iH1",
+            "type": "host",
+            "x": 1400,
+            "y": 510,
+            "properties": {
+                "IP": "10.20.30.2/24",
+                "DefaultRoute": "via 10.20.30.1"
+            }
+        },
+        {
+            "id": "iH2",
+            "type": "host",
+            "x": 1400,
+            "y": 600,
+            "properties": {
+                "IP": "10.20.30.3/24",
+                "DefaultRoute": "via 10.20.30.1"
+            }
+        },
+        {
+            "id": "iH3",
+            "type": "host",
+            "x": 1400,
+            "y": 690,
+            "properties": {
+                "IP": "10.20.30.4/24",
+                "DefaultRoute": "via 10.20.30.1"
+            }
+        }
+    ],
+
+    "links": [
+        {"src": "rR", "dst": "s1",  "segment": "rwan", "properties": {"Bandwidth": 100,   "Delay": "50ms", "Jitter": "20ms", "Loss": 1.0}},
+        {"src": "s1", "dst": "uR",  "segment": "uwan", "properties": {"Bandwidth": 5000,  "Delay": "20ms", "Jitter": "5ms",  "Loss": 0.1}},
+
+        {"src": "rR", "dst": "s2",  "segment": "rlan", "properties": {"Bandwidth": 5000,  "Delay": "3ms",  "Jitter": "3ms",  "Loss": 0.3}},
+        {"src": "s2", "dst": "rH1", "segment": "rlan", "properties": {"Bandwidth": 5000,  "Delay": "3ms",  "Jitter": "3ms",  "Loss": 0.3}},
+        {"src": "s2", "dst": "rH2", "segment": "rlan", "properties": {"Bandwidth": 5000,  "Delay": "3ms",  "Jitter": "3ms",  "Loss": 0.3}},
+        {"src": "s2", "dst": "rH3", "segment": "rlan", "properties": {"Bandwidth": 5000,  "Delay": "3ms",  "Jitter": "3ms",  "Loss": 0.3}},
+        {"src": "s2", "dst": "rH4", "segment": "rlan", "properties": {"Bandwidth": 5000,  "Delay": "3ms",  "Jitter": "3ms",  "Loss": 0.3}},
+
+        {"src": "uR", "dst": "s3",  "segment": "ulan", "properties": {"Bandwidth": 1000, "Delay": "2ms",  "Jitter": "1ms",  "Loss": 0.01}},
+        {"src": "uR", "dst": "s4",  "segment": "ulan", "properties": {"Bandwidth": 1000, "Delay": "2ms",  "Jitter": "1ms",  "Loss": 0.01}},
+        {"src": "uR", "dst": "s5",  "segment": "ulan", "properties": {"Bandwidth": 1000, "Delay": "2ms",  "Jitter": "1ms",  "Loss": 0.01}},
+
+        {"src": "s3", "dst": "aH1", "segment": "ulan", "properties": {"Bandwidth": 1000, "Delay": "2ms",  "Jitter": "1ms",  "Loss": 0.01}},
+        {"src": "s3", "dst": "aH2", "segment": "ulan", "properties": {"Bandwidth": 1000, "Delay": "2ms",  "Jitter": "1ms",  "Loss": 0.01}},
+        {"src": "s3", "dst": "aH3", "segment": "ulan", "properties": {"Bandwidth": 1000, "Delay": "2ms",  "Jitter": "1ms",  "Loss": 0.01}},
+
+        {"src": "s4", "dst": "cH1", "segment": "ulan", "properties": {"Bandwidth": 1000, "Delay": "2ms",  "Jitter": "1ms",  "Loss": 0.01}},
+        {"src": "s4", "dst": "cH2", "segment": "ulan", "properties": {"Bandwidth": 1000, "Delay": "2ms",  "Jitter": "1ms",  "Loss": 0.01}},
+        {"src": "s4", "dst": "cH3", "segment": "ulan", "properties": {"Bandwidth": 1000, "Delay": "2ms",  "Jitter": "1ms",  "Loss": 0.01}},
+
+        {"src": "s5", "dst": "iH1", "segment": "ulan", "properties": {"Bandwidth": 1000, "Delay": "2ms",  "Jitter": "1ms",  "Loss": 0.01}},
+        {"src": "s5", "dst": "iH2", "segment": "ulan", "properties": {"Bandwidth": 1000, "Delay": "2ms",  "Jitter": "1ms",  "Loss": 0.01}},
+        {"src": "s5", "dst": "iH3", "segment": "ulan", "properties": {"Bandwidth": 1000, "Delay": "2ms",  "Jitter": "1ms",  "Loss": 0.01}}
+    ],
+    "ditg_server": "rH4"
+}
